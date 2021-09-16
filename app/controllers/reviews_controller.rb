@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
     def index
         # session[:user_id] = "user"
-        reviews = Review.all
+        reviews = current_user.reviews
         render json: reviews 
     end
 

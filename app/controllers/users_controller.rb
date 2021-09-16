@@ -13,7 +13,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     #GET /users/:id
 
     def show
-        user = User.find_by(session[:user_id])
+        user = User.find_by(id: session[:user_id])
         if user
           render json: user
         else
