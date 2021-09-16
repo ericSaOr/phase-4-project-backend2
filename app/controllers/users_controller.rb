@@ -10,5 +10,7 @@ class UsersController < ApplicationController
     #     puts "HEY ###### #{self}"
     #     render json: session[:user_id]
     # end
-
+    def create 
+        byebug
+    end
 end
