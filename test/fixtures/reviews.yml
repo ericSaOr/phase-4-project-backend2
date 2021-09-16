@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  note: MyString
+  date_time: 1
+  user_id: 1
+  bakery_id: 1
+
+two:
+  note: MyString
+  date_time: 1
+  user_id: 1
+  bakery_id: 1
