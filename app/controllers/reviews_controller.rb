@@ -16,6 +16,14 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def update
+        review = find_review
+        review.update(
+            note: params[:note]
+        )
+        render json: review
+    end
+
 
     def show 
         review = Review.find(params[:id])
