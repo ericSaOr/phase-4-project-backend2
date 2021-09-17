@@ -9,12 +9,12 @@ class ReviewsController < ApplicationController
         puts "WHATS UP PARTY PEOPLE THIS IS #{current_user ? current_user.username : "NOT LOGGED IN"}"
 
         if current_user == nil
-            puts "Sorry, user doesn't exist"
+            render json:[]
         else
             reviews = current_user.reviews
             render json: reviews 
+        end
     end
-end
 
 
     def show 
@@ -23,7 +23,12 @@ end
     end
     
     def create
-        review = Review.create!(review_params)
+        review = Review.new(review_params)
+        bakery_id = Bakery.all.sample.id
+        user_id = current_user.id
+        review.bakery_id = bakery_id
+        review.user_id = user_id
+        review.save
         render json: review, status: :created
     end
 
