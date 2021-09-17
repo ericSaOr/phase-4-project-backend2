@@ -6,9 +6,16 @@ class ReviewsController < ApplicationController
 
     def index
         # session[:user_id] = "user"
-        reviews = current_user.reviews
-        render json: reviews 
+        puts "WHATS UP PARTY PEOPLE THIS IS #{current_user ? current_user.username : "NOT LOGGED IN"}"
+
+        if current_user == nil
+            puts "Sorry, user doesn't exist"
+        else
+            reviews = current_user.reviews
+            render json: reviews 
     end
+end
+
 
     def show 
         review = Review.find(params[:id])
